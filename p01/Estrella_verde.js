@@ -79,7 +79,7 @@ function createStar(gl) {
       0.0, 0.9, 0.0
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
-    var star = {buffer:vertexBuffer, vertSize:3, nVerts:16, primtype:gl.TRIANGLE_STRIP};
+    var star = {buffer:vertexBuffer, vertSize:3, nVerts:16, primtype:gl.TRIANGLE_STRIP}; //Cambiar numero de vertices o coordenadas para menor por primitiva
     return star;
 }
 
