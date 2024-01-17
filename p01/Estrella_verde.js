@@ -45,38 +45,17 @@ function createStar(gl) {
     vertexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
     var verts = [
-      // B
-      0.0,  0.9, 0.0,
-      // G
-      -0.3, 0.3, 0.0,
-      // A
-      0.0,  0.0, 0.0,
-      // C
-      -0.9, 0.15, 0.0,
-      // I
-      -0.45, -0.3, 0.0,
-      // A
-      0.0,  0.0, 0.0,
-      // D
-      -0.6, -0.9, 0.0,
-      // K
-      0.0, -0.6, 0.0,
-      // A
-      0.0, 0.0, 0.0,
-      // E
-      0.6, -0.9, 0.0,
-      // J
-      0.45, -0.3, 0.0,
-      // A
-      0.0, 0.0, 0.0,
-      // F
-      0.9, 0.15, 0.0,
-      // H
-      0.3, 0.3, 0.0,
-      // A
-      0.0, 0.0, 0.0,
-      // B
-      0.0, 0.9, 0.0
+        -0.01, 1.09,  0.0, 
+    	-0.34, 0.475, 0.0, 
+    	0.345, 0.47,  0.0, 
+    	-0.99, 0.33,  0.0, 
+    	0.98, 0.33,  0.0, 
+    	-0.535, -0.21, 0.0, 
+    	0.52, -0.21, 0.0, 
+    	0.6, -0.905, 0.0, 
+    	-0.005, -0.6,  0.0, 
+    	-0.535, -0.21, 0.0,
+    	-0.625, -0.91, 0.0
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
     var star = {buffer:vertexBuffer, vertSize:3, nVerts:16, primtype:gl.TRIANGLE_STRIP}; //Cambiar numero de vertices o coordenadas para menor por primitiva
