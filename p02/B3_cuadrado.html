@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>A Simple Three.js Page</title>
+		<script src="./node_modules/three/build/three.min.js"></script>
+		<script>
+			function onLoad()
+			{
+				// Se obtiene el elemento div con el id "container"
+				var container = document.getElementById("container");
+
+				// Se crea el objeto renderer de Three.js, para el renderizado de la escena
+				var renderer = new THREE.WebGLRenderer();
+
+				// Se inicializa el objeto renderer del mismo tamaño que el contenedor
+				renderer.setSize(container.offsetWidth, container.offsetHeight);
+
+				// Se vincula al contenedor con el objeto renderer en una relación DOM padre-hijo
+				container.appendChild( renderer.domElement );
+
+				// Se crea una escena de Three.js
+				var scene = new THREE.Scene();
+
+				// Se crea una cámara y se agrega a la escena previamente creada
+				var camera = new THREE.PerspectiveCamera( 45, container.offsetWidth / container.offsetHeight, 1, 4000 );
+				// Se define posición de la cámara y se agrega a la escena
+				camera.position.set( 0, 0, 3.3333 );
+				scene.add( camera );
+
+				// Ahora, se crea un cuadrilatero plano y se agrega a la escena
+				var geometry = new THREE.PlaneGeometry(1, 1);
+				var mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( ) );
+				scene.add( mesh );
+
+				// Se renderiza la escena percibida a través de la cámara
+				renderer.render( scene, camera );
+			}
+		</script>
+	</head>
+
+	<body onLoad="onLoad();">
+		<div id="container"	style="width:500px; height:500px; background-color:#000000">
+		</div>
+	</body>
+
+</html>
