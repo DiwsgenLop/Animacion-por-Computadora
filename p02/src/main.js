@@ -1,5 +1,4 @@
-
-import * as THREE from './node_modules/three/build/three.module.js';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.1/three.module.js';
 //Se crea el objeto de la escena
 const scene = new THREE.Scene();
 //Camara de tipo perspectiva (fov, aspect, near, far)
@@ -17,8 +16,8 @@ document.body.appendChild( renderer.domElement );
 
 // Se crea una luz direccional para mostrar el objeto
 var light = new THREE.DirectionalLight( 0xffffff, 1.5); //Color e intensidad
-light.position.set(0, 0, 0);
-//scene.add( light );
+light.position.set(1, 0, 1);
+scene.add( light );
 
 //Creando los objetos
 //Tamaño del cubo
@@ -35,7 +34,7 @@ const geometry5 = new THREE.SphereGeometry( 2, 32, 32 ); //Radio, segmentos hori
 const geometry6 = new THREE.TorusGeometry( 2, 1, 16, 100 ); //Radio, radio del tubo, segmentos radiales y tubulares
 
 //Material (color)
-const material = new THREE.MeshBasicMaterial( { color: 0x0099ff } );
+const material = new THREE.MeshPhongMaterial( { color: 0x0099ff } );
 
 //Creacion de objetos
 const cube = new THREE.Mesh( geometry, material );
@@ -60,12 +59,12 @@ sphere.position.set(0, -4, 0);
 torus.position.set(8.5, -3.5, 0);
 
 //Añadiendo elementos
-scene.add( light, cube, cylinder, dodecahedron, icosahedron, sphere, torus);
+scene.add(cube, cylinder, dodecahedron, icosahedron, sphere, torus);
 
 //Creacion de coordenadas
 const coordx = 0;
 const coordy = 0;
-const coordz = 10;
+const coordz = 12;
 //Se posiciona la camara
 camera.position.set(coordx, coordy, coordz);
 
