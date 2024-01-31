@@ -39,6 +39,7 @@ function onLoad() {
     var light = new THREE.DirectionalLight(0xffffff, 1.5);
     light.position.set(0, 0, 1);
     scene.add(light);
+    //To remove the light we only need scene.remove(light); and change to the other ones    
 
     // Create a shaded, texture-mapped cube and add it to the scene
     // First, create the texture map
@@ -52,8 +53,8 @@ function onLoad() {
 
     //Creamos nuevos materiales que se utilizaran con diferente tipo de iluminacion pero con mismo color
     material0 = new THREE.MeshBasicMaterial({ map: texture });
-    material1 = new THREE.MeshStandardMaterial({ map: texture });
-    material2 = new THREE.MeshPhongMaterial({ map: texture });
+    material1 = new THREE.MeshStandardMaterial({ map: texture});
+    material2 = new THREE.MeshPhongMaterial({ map: texture});
 
     //Tamaño del cubo
     const geometry = new THREE.BoxGeometry(2, 2, 2);
@@ -131,7 +132,7 @@ function run() {
     // Ask for another frame
     requestAnimationFrame(run);
     //Se cambia el material de la figura dependiendo del valor de num_material
-    if (cambio) {
+    //if (cambio) {
         switch (num_material) {
             case 0:
                 cube.material = material0;
@@ -158,7 +159,7 @@ function run() {
                 torus.material = material2;
                 break;
         }
-    }
+    //}
 }
 
 // Handles the mouse up event, can be used to toggle animation
@@ -174,8 +175,8 @@ function onMouseUp(event) {
     //los valores 0, 1 y 2, en otro caso se reinicia
     num_material++;
     if (num_material == 3) {
+        //Se reinicia el valor de num_material
         num_material = 0;
-    }
-    //Se cambia el valor de cambio para que se cambie el material
-    cambio = !cambio;
+    }    
+    //animating = !animating;
 }	
